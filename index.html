@@ -572,11 +572,11 @@ table.tabela-resultado a:hover { text-decoration: underline; }
 	
 	Plataforma de consulta a dados públicos de parlamentares, voltada ao fortalecimento da participação popular.<br>
 	
-	<small id="visitas" style="display:block; text-align:center; font-size:10px; color:#999; opacity:.7;"></small>
+	<small id="visitas" style="display:block; text-align:center; font-size:11px; color:#999; opacity:.7;"></small>
 
   <script>
     // Troque "meusite-exemplo" por um nome único para o seu site
-    fetch("https://api.counterapi.dev/v1/teste_OP/visitas/up")
+    fetch("https://api.counterapi.dev/v2/teste_OP/visitas/up")
       .then(r => r.json())
       .then(d => {
         document.getElementById("visitas").textContent =  d.count;
