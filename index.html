@@ -572,17 +572,27 @@ table.tabela-resultado a:hover { text-decoration: underline; }
 	
 	Plataforma de consulta a dados públicos de parlamentares, voltada ao fortalecimento da participação popular.<br>
 	
-	<small id="visitas" style="display:block; text-align:center; font-size:11px; color:#999; opacity:.7;"></small>
+<div style="font-family: sans-serif; font-size: 16px; margin: 20px;">
+  Suas visitas nesta página: <span id="contador-visitas">1</span>
+</div>
 
-  <script>
-    // Troque "meusite-exemplo" por um nome único para o seu site
-    fetch("https://api.counterapi.dev/v2/teste_OP/visitas/up")
-      .then(r => r.json())
-      .then(d => {
-        document.getElementById("visitas").textContent =  d.count;
-      })
-      .catch(() => {}); // se falhar, não mostra nada
-  </script>
+<script>
+  // Verifica se já existe um contador no armazenamento do navegador
+  let visitas = localStorage.getItem('numeroDeVisitas');
+
+  if (visitas) {
+    visitas = Number(visitas) + 1;
+  } else {
+    visitas = 1;
+  }
+
+  // Salva o novo valor
+  localStorage.setItem('numeroDeVisitas', visitas);
+
+  // Exibe na tela
+  document.getElementById('contador-visitas').innerText = visitas;
+</script>
+
 	
   </div>
   <div class="rodape__construcao">
